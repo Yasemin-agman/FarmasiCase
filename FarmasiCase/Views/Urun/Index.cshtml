@@ -1,0 +1,65 @@
+﻿@model IEnumerable<FarmasiCase.Models.Urunler>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout-1.cshtml";
+}
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+          
+                <th>
+                    Gorsel
+                </th>
+                <th>
+                    UrunAdi
+                </th>
+                <th>
+                    Renk
+                </th>
+                <th>
+                    Fiyat
+                </th>
+                <th>
+                    işlemler
+                </th>
+            
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@item.Gorsel" width="150" height="150" />
+                </td>
+                <td>
+                    @item.UrunAdi
+                </td>
+                <td>
+                    @item.Renk
+                </td>
+                <td>
+                    @item.Fiyat
+                </td>
+                <td>
+                    @using (Html.BeginForm("Index", "Cart"))
+                    {
+                        
+                        <button type="submit" class="btn btn-success">
+                            <i class="fa fa-cart-plus" aria-hidden="true">Sepete Ekle</i>
+                        </button>
+                    }
+
+                </td>
+            </tr>
+        
+        }
+    </tbody>
+</table>
