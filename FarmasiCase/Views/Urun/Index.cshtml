@@ -49,13 +49,14 @@
                     @item.Fiyat
                 </td>
                 <td>
-                    @using (Html.BeginForm("Index", "Cart"))
+                    @Html.ActionLink("Sepete Ekle", "AddToCart","Cart", new {  id=item.Id  },new { @class = "btn btn-primary"} )
+                   @* @using (Html.BeginForm("Index", "Cart"))
                     {
                         
                         <button type="submit" class="btn btn-success">
                             <i class="fa fa-cart-plus" aria-hidden="true">Sepete Ekle</i>
                         </button>
-                    }
+                    }*@
 
                 </td>
             </tr>
